@@ -1,0 +1,31 @@
+{
+  "key": "value",
+  "nested": {
+    "array": [
+      {
+        "key1": "value",
+        "key2": "value2"
+      },
+      {
+        "key1": "value",
+        "key2": "value2"
+      }
+    ]
+  },
+  "array": [
+    {
+      "key1": "value",
+      "key2": "value2",
+      "nested": {
+        "key3": "value3"
+      }
+    },
+    {
+      "key1": "value",
+      "key2": "value2",
+      "nested": {
+        "key3": "value3"
+      }
+    }
+  ]
+}
