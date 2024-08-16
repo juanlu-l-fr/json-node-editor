@@ -15,7 +15,7 @@
     "commands": [
       {
         "command": "json-node-editor.removeNode",
-        "title": "Json Node Editor | remove node"
+        "title": "Json Node Editor | Remove node"
       },
       {
         "command": "json-node-editor.upsertNode",

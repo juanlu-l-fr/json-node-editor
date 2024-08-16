@@ -1,71 +1,67 @@
-# json-node-editor README
-
-This is the README for your extension "json-node-editor". After writing up a brief description, we recommend including the following sections.
+# Json Node Editor
+This extension allows you to easily manipulate a json file, being able to add new nodes, remove, edit, etc..
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Remove nodes
+Open the command palette and type for `Json Editor Nodes | Remove node`. 
+Once selected it will ask for a key to delete on the json provided.
+If the json is an array of object, the key will be deleted on every object.
+More than one key can be selected, and nesting is applied using `.` operator, examples:
+- `key1, key2, key3`.
+- `key1.nested, key2`.
 
-For example if there is an image subfolder under your extension project workspace:
+It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
 
-\!\[feature X\]\(images/feature-x.png\)
+### Select nodes
+Open the command palette and type for `Json Editor Nodes |  Select only specific keys`. 
+Once selected it will ask for a key to select on the json provided. Returning a json containing only the specified key and its value. Any other property is removed.
+If the json is an array of object, it will return the same array with only the key filled.
+More than one key can be selected, and nesting is applied using `.` operator, examples:
+- `key1, key2, key3`.
+- `key1.nested, key2`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
 
-## Requirements
+### Create/Edit nodes
+Open the command palette and type for `Json Editor Nodes | Create/Edit node`. 
+Once selected it will ask for a key and value to either create or edit in the json provided. Only one pair can be specified.
+Will either add or edit the key as specified in the input.
+Examples are:
+- `key="value"`
+- `key={"nestedKey": "value"}`
+- `key=[{"nestedKey": "value"}]`.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
 
-## Extension Settings
+### Sort nodes
+Open the command palette and type for `Json Editor Nodes | Sort by keys`. 
+This operation will order the keys on the json in alphabetic order.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-For example:
+## Settings
 
-This extension contributes the following settings:
+Configuration can be applied to store commonly used operations.
+To edit them go to Settings > Extensions > Json Node Extension
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Example configuration:
+```json
+"json-node-editor.config.remove": [
+    {
+        "name": "commonly-removed-keys",
+        "value": "key1, key2.nested.object, key3"
+    }
+],
+"json-node-editor.config.select": [
+    {
+        "name": "commonly-selected-keys",
+        "value": "key1, key2.nested.object, key3"
+    }
+],
+"json-node-editor.config.create": [
+    {
+        "name": "commonly-created-keys",
+        "value": "newKey=\"value\""
+    }
+]
+```
