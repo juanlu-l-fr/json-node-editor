@@ -7,7 +7,7 @@ export async function removeNodes(editorHandler: EditorHandler, parser: JsonNode
     let result = parser.process(editorHandler.getDocument(), (jsonObject: any) => {
         key.split(',').map(k => k.trim())
             .forEach(k => {
-                deleteNodeByPath(jsonObject, k.split("."));
+                deleteNodeByPath(jsonObject, parser.splitKey(k));
             });
             return jsonObject;
     });

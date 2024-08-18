@@ -1,4 +1,3 @@
-import * as vscode from 'vscode';
 import { TextDocument } from "vscode";
 export class JsonNodeParser {
 
@@ -22,12 +21,8 @@ export class JsonNodeParser {
         }
     }
 
-    public keySplitter(key: string): string[] {
+    public splitKey(key: string): string[] {
         return key.split('.');
-    }
-
-    public isLeaf(jsonObject: any): boolean {
-        return !(jsonObject instanceof Array || jsonObject instanceof Object);
     }
 
 

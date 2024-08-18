@@ -7,7 +7,7 @@ export async function selectNodes(editorHandler: EditorHandler, parser: JsonNode
         let innerSelected = {};
         key.split(',').map(k => k.trim())
             .forEach(k => {
-                keepKeys(jsonObject, k.split("."), innerSelected);
+                keepKeys(jsonObject, parser.splitKey(k), innerSelected);
             });
         return innerSelected;
     });

@@ -25,13 +25,6 @@ export class EditorHandler {
         this.editor.edit(builder => builder.replace(fullRange, prettyStringify));
     }
 
-    public async askForInput(): Promise<string | number | symbol> {
-        const keyInput = await this.askForInputAsync();
-
-        const key = keyInput as keyof any;
-        return key;
-    }
-
     public async askForInputAsync(): Promise<string> {
         return await new Promise<string>((resolve, reject) => {
             let result = "";
@@ -62,8 +55,6 @@ export class EditorHandler {
     public getDocument(): TextDocument {
         return this.document;
     }
-    public getText(): string {
-        return this.document.getText();
-    }
+    
 
 }
