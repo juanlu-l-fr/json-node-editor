@@ -1,6 +1,7 @@
 {
   "name": "json-node-editor",
   "displayName": "json-node-editor",
+  "publisher": "juanlu-l-fr",
   "description": "Allows to edit json nodes in bulk.",
   "version": "0.0.1",
   "engines": {
