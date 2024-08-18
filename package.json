@@ -3,6 +3,7 @@
   "displayName": "json-node-editor",
   "publisher": "juanlu-l-fr",
   "description": "Allows to edit json nodes in bulk.",
+  "repository": "https://github.com/juanlu-l-fr/json-node-editor",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
