@@ -2,9 +2,18 @@
   "name": "json-node-editor",
   "displayName": "json-node-editor",
   "publisher": "juanlu-l-fr",
-  "description": "Allows to edit json nodes in bulk.",
-  "repository": "https://github.com/juanlu-l-fr/json-node-editor",
-  "version": "0.0.1",
+  "description": "Allows you to edit json nodes in bulk.",
+	"author": "Juanlu",
+	"bugs": {
+		"url": "https://github.com/ZainChen/vscode-json/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/juanlu-l-fr/json-node-editor"
+	},
+	"license": "MIT",
+	"icon": "resources/icon.png",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -41,7 +50,7 @@
             "null"
           ],
           "default": false,
-          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values tu use\"} array with the preconfigured expressions for select"
+          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values to use\"} array with the preconfigured expressions for select"
         },
         "json-node-editor.config.remove": {
           "type": [
@@ -49,7 +58,7 @@
             "null"
           ],
           "default": null,
-          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values tu use\"} array with the preconfigured expressions for remove"
+          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values to use\"} array with the preconfigured expressions for remove"
         },
         "json-node-editor.config.create": {
           "type": [
@@ -57,7 +66,7 @@
             "null"
           ],
           "default": null,
-          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values tu use\"} array with the preconfigured expressions for create"
+          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values to use\"} array with the preconfigured expressions for create"
         }
       }
     }

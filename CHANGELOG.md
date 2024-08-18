@@ -1,9 +1,5 @@
 # Change Log
 
-All notable changes to the "json-node-editor" extension will be documented in this file.
+## [0.0.1]
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- Initial release with all main features. Including adding, editing and removing nodes. As well as selecting specific keys and sorting by key.
