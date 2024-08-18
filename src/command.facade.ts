@@ -4,26 +4,52 @@ import { removeNodes } from './commands/remove.command';
 import { upsertNode } from './commands/create.command';
 import { selectNodes } from './commands/select.command';
 import { sortNodes } from './commands/sort.command';
+import * as vscode from 'vscode';
 
+export class CommandFacade {
+    private config: vscode.WorkspaceConfiguration
+    private parser: JsonNodeParser
 
-export async function remove(editorHandler: EditorHandler) {
-    const parser = new JsonNodeParser();
-    editorHandler.operation = 'remove';
-    removeNodes(editorHandler, parser);
-}
+    constructor() {
+        this.config = vscode.workspace.getConfiguration('json-node-editor.config');
+        this.parser = new JsonNodeParser();
+    }
 
-export async function create(editorHandler: EditorHandler) {
-    const parser = new JsonNodeParser();
-    editorHandler.operation = 'create';
-    upsertNode(editorHandler, parser);
-}
-export async function sort(editorHandler: EditorHandler) {
-    const parser = new JsonNodeParser();
-    sortNodes(editorHandler, parser);
-}
-export async function select(editorHandler: EditorHandler) {
-    const parser = new JsonNodeParser();
-    editorHandler.operation = 'select';
-    selectNodes(editorHandler, parser);
+    public async remove() {
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            editorHandler.operation = 'remove';
+            removeNodes(editorHandler, this.parser);
+        }
+
+    }
+
+    public async create() {
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            editorHandler.operation = 'create';
+            upsertNode(editorHandler, this.parser);
+        }
+
+    }
+    public async sort() {
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            sortNodes(editorHandler, this.parser);
+        }
+
+    }
+    public async select() {
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            editorHandler.operation = 'select';
+            selectNodes(editorHandler, this.parser);
+        }
+
+    }
 }
 
