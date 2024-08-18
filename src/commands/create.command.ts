@@ -7,7 +7,7 @@ export async function upsertNode(editorHandler: EditorHandler, parser: JsonNodeP
     if (parts.length === 2) {
         let result = parser.process(editorHandler.getDocument(), (jsonObject: any) => {
             let newValue = JSON.parse(parts[1]);
-            createNodeByPath(jsonObject, parts[0].split("."), newValue);
+            createNodeByPath(jsonObject, parser.splitKey(parts[0]), newValue);
             return jsonObject;
 
         });

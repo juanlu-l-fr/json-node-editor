@@ -9,7 +9,7 @@ export class EditorHandler {
     private config: vscode.WorkspaceConfiguration;
 
     constructor(editor: TextEditor, operation: string | undefined) {
-
+        
         this.editor = editor;
         this.document = editor?.document;
         this.operation = operation ?? '';
@@ -21,15 +21,9 @@ export class EditorHandler {
             this.document.positionAt(0),
             this.document.positionAt(this.document.getText().length)
         );
-        const prettyStringify = JSON.stringify(newContent, null, 2);
+        
+        const prettyStringify = JSON.stringify(newContent, null, this.editor.options.indentSize);
         this.editor.edit(builder => builder.replace(fullRange, prettyStringify));
-    }
-
-    public async askForInput(): Promise<string | number | symbol> {
-        const keyInput = await this.askForInputAsync();
-
-        const key = keyInput as keyof any;
-        return key;
     }
 
     public async askForInputAsync(): Promise<string> {
@@ -62,8 +56,6 @@ export class EditorHandler {
     public getDocument(): TextDocument {
         return this.document;
     }
-    public getText(): string {
-        return this.document.getText();
-    }
+    
 
 }

@@ -17,7 +17,6 @@ export class CommandFacade {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const editorHandler: EditorHandler = new EditorHandler(editor, 'remove');
-            editorHandler.operation = 'remove';
             removeNodes(editorHandler, this.parser);
         }
 
@@ -27,7 +26,6 @@ export class CommandFacade {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const editorHandler: EditorHandler = new EditorHandler(editor, 'create');
-            editorHandler.operation = 'create';
             upsertNode(editorHandler, this.parser);
         }
 
@@ -44,7 +42,6 @@ export class CommandFacade {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const editorHandler: EditorHandler = new EditorHandler(editor, 'select');
-            editorHandler.operation = 'select';
             selectNodes(editorHandler, this.parser);
         }
 
