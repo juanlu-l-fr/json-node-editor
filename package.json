@@ -4,9 +4,6 @@
   "publisher": "juanlu-l-fr",
   "description": "Allows you to edit json nodes in bulk.",
 	"author": "Juanlu",
-	"bugs": {
-		"url": "https://github.com/ZainChen/vscode-json/issues"
-	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/juanlu-l-fr/json-node-editor"
