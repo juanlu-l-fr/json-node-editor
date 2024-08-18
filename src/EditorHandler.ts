@@ -8,12 +8,12 @@ export class EditorHandler {
     public operation: string;
     private config: vscode.WorkspaceConfiguration;
 
-    constructor(editor: TextEditor, config: vscode.WorkspaceConfiguration) {
+    constructor(editor: TextEditor, operation: string | undefined) {
 
         this.editor = editor;
         this.document = editor?.document;
-        this.operation = '';
-        this.config = config;
+        this.operation = operation ?? '';
+        this.config = vscode.workspace.getConfiguration('json-node-editor.config');
     }
 
     public replaceContent(newContent: any): void {
@@ -58,20 +58,6 @@ export class EditorHandler {
         const result: any[] | undefined = this.config.get(this.operation);
         return result ?? [];
     }
-
-
-    // const result = await vscode.window.showQuickPick(["value1", "value2"], {
-
-    // });
-    // showInputBox({
-    //     value: "",
-    //     placeHolder: "",
-    //     ignoreFocusOut: true
-    // });
-    // if (!result) {
-    //     return '';
-    // }
-    // return result ?? '';
 
     public getDocument(): TextDocument {
         return this.document;

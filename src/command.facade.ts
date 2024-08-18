@@ -7,18 +7,16 @@ import { sortNodes } from './commands/sort.command';
 import * as vscode from 'vscode';
 
 export class CommandFacade {
-    private config: vscode.WorkspaceConfiguration
     private parser: JsonNodeParser
 
     constructor() {
-        this.config = vscode.workspace.getConfiguration('json-node-editor.config');
         this.parser = new JsonNodeParser();
     }
 
     public async remove() {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
-            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            const editorHandler: EditorHandler = new EditorHandler(editor, 'remove');
             editorHandler.operation = 'remove';
             removeNodes(editorHandler, this.parser);
         }
@@ -28,7 +26,7 @@ export class CommandFacade {
     public async create() {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
-            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            const editorHandler: EditorHandler = new EditorHandler(editor, 'create');
             editorHandler.operation = 'create';
             upsertNode(editorHandler, this.parser);
         }
@@ -37,7 +35,7 @@ export class CommandFacade {
     public async sort() {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
-            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            const editorHandler: EditorHandler = new EditorHandler(editor, undefined);
             sortNodes(editorHandler, this.parser);
         }
 
@@ -45,7 +43,7 @@ export class CommandFacade {
     public async select() {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
-            const editorHandler: EditorHandler = new EditorHandler(editor, this.config);
+            const editorHandler: EditorHandler = new EditorHandler(editor, 'select');
             editorHandler.operation = 'select';
             selectNodes(editorHandler, this.parser);
         }
