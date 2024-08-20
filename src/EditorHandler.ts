@@ -50,7 +50,7 @@ export class EditorHandler {
 
     public getConfig(): any[] {
         const result: any[] | undefined = this.config.get(this.operation);
-        return result ?? [];
+        return result? result : [];
     }
 
     public getDocument(): TextDocument {

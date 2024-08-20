@@ -10,7 +10,7 @@
 	},
 	"license": "MIT",
 	"icon": "resources/icon.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -36,6 +36,10 @@
       {
         "command": "json-node-editor.select",
         "title": "Json Node Editor | Select only specific keys"
+      },
+      {
+        "command": "json-node-editor.unwrap",
+        "title": "Json Node Editor | Unwrap specific keys"
       }
     ],
     "configuration": {
@@ -48,6 +52,14 @@
           ],
           "default": false,
           "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values to use\"} array with the preconfigured expressions for select"
+        },
+        "json-node-editor.config.unwrap": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "default": false,
+          "description": "{\"name\" : \"pre-configured selection name\", \"value\" : \"values to use\"} array with the preconfigured expressions for unwrap"
         },
         "json-node-editor.config.remove": {
           "type": [
