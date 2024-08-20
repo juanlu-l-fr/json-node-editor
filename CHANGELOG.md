@@ -1,5 +1,7 @@
 # Change Log
 
-
+## [1.0.1]
+- [Bugfix]: Fixed `select` command, where it wouldn't read correctly nested arrays.
+- [Added]: unwrap command.
 ## [1.0.0]
 - Initial release with all main features. Including adding, editing and removing nodes. As well as selecting specific keys and sorting by key.
