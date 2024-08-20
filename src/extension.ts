@@ -13,7 +13,8 @@ export function activate(context: vscode.ExtensionContext) {
 		const createCmd = vscode.commands.registerCommand('json-node-editor.upsertNode', () => facade.create());
 		const sortCmd = vscode.commands.registerCommand('json-node-editor.sortKeys', () => facade.sort());
 		const selectCmd = vscode.commands.registerCommand('json-node-editor.select', () => facade.select());
-		context.subscriptions.push(removeCmd, createCmd, sortCmd, selectCmd);
+		const unwrapCmd = vscode.commands.registerCommand('json-node-editor.unwrap', () => facade.unwrap());
+		context.subscriptions.push(removeCmd, createCmd, sortCmd, selectCmd, unwrapCmd);
 	}
 
 }

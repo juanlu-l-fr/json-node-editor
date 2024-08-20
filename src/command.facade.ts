@@ -5,6 +5,7 @@ import { upsertNode } from './commands/create.command';
 import { selectNodes } from './commands/select.command';
 import { sortNodes } from './commands/sort.command';
 import * as vscode from 'vscode';
+import { unwrapNodes } from './commands/unwrap.command';
 
 export class CommandFacade {
     private parser: JsonNodeParser
@@ -43,6 +44,15 @@ export class CommandFacade {
         if (editor) {
             const editorHandler: EditorHandler = new EditorHandler(editor, 'select');
             selectNodes(editorHandler, this.parser);
+        }
+
+    }
+
+    public async unwrap() {
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            const editorHandler: EditorHandler = new EditorHandler(editor, 'unwrap');
+            unwrapNodes(editorHandler, this.parser);
         }
 
     }

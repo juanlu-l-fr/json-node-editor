@@ -23,11 +23,10 @@ function keepKeys(obj: any, keys: string[], selected: any): void {
         currentObj = currentObj[keys[i]];
         if (!currentObj) {
             return; // Si la ruta no existe, salir
-        } else if (!selected[keys[i]]) {
-            selected[keys[i]] = (currentObj instanceof Array) ? [] : {};
+        } else if (!currentSelected[keys[i]]) {
+            currentSelected[keys[i]] = (currentObj instanceof Array) ? [] : {};
         }
         currentSelected = currentSelected[keys[i]];
-
         if (currentObj instanceof Array) {
             for (let j = 0; j < currentObj.length; j++) {
                 const innerObject = currentObj[j];
