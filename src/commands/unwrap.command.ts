@@ -21,11 +21,11 @@ function unwrapKeys(obj: any, keys: string[]): any {
         }
         if (currentObj instanceof Array) {
             result = []
-            for (let j = 0; j < currentObj.length; j++) {
-                const innerObject = currentObj[j];
+            currentObj.forEach(innerObject => {
                 let innerSelected = unwrapKeys(innerObject, keys.slice(i + 1, keys.length));
                 result.push(innerSelected);
-            }
+            })
+            
             break;
         }
     }
@@ -33,11 +33,5 @@ function unwrapKeys(obj: any, keys: string[]): any {
         result = currentObj[keys[keys.length - 1]]
     }
     return result;
-    // selected = currentObj[keys[keys.length - 1]]
-
-    // if (!(currentObj instanceof Array)) {
-
-    //     currentSelected = currentObj[keys[keys.length - 1]];
-    // }
 
 }

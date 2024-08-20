@@ -29,10 +29,11 @@ function keepKeys(obj: any, keys: string[], selected: any): void {
         currentSelected = currentSelected[keys[i]];
         if (currentObj instanceof Array) {
             for (let j = 0; j < currentObj.length; j++) {
-                const innerObject = currentObj[j];
+                currentObj.forEach(innerObject => {
                 let innerSelected = {};
                 keepKeys(innerObject, keys.slice(i + 1, keys.length), innerSelected);
                 currentSelected.push(innerSelected);
+                });
             }
 
         }
