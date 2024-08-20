@@ -14,11 +14,20 @@ More than one key can be selected, and nesting is applied using `.` operator, ex
 It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
 
 ### Select nodes
-Open the command palette and type for `Json Editor Nodes |  Select only specific keys`. 
+Open the command palette and type for `Json Editor Nodes | Select only specific keys`. 
 Once selected it will ask for a key to select on the json provided. Returning a json containing only the specified key and its value. Any other property is removed.
 If the json is an array of object, it will return the same array with only the key filled.
 More than one key can be selected, and nesting is applied using `.` operator, examples:
 - `key1, key2, key3`.
+- `key1.nested, key2`.
+
+It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
+
+### Unwrap nodes
+Open the command palette and type for `Json Node Editor | Unwrap specific keys`. 
+Once selected it will ask for a key to unwrap on the json provided. Returning a json containing only the value of the specified key, similar to select operation but removing the keys. Any other property is removed.
+If the json is an array of object, it will return the same array unwrapping each individual object.
+Only one key is allowed, and nesting is applied using `.` operator, examples:
 - `key1.nested, key2`.
 
 It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
@@ -56,6 +65,12 @@ Example configuration:
     {
         "name": "commonly-selected-keys",
         "value": "key1, key2.nested.object, key3"
+    }
+],
+"json-node-editor.config.unwrap": [
+    {
+        "name": "commonly-unwrapped-keys",
+        "value": "key2.nested.object"
     }
 ],
 "json-node-editor.config.create": [
