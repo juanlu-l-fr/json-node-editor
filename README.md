@@ -15,8 +15,8 @@ It will also show pre-configured keys stored in configuration. See [Settings sec
 
 ### Select nodes
 Open the command palette and type for `Json Editor Nodes | Select only specific keys`. 
-Once selected it will ask for a key to select on the json provided. Returning a json containing only the specified key and its value. Any other property is removed.
-If the json is an array of object, it will return the same array with only the key filled.
+Once selected it will ask for a key to select on the json provided. Returning a json containing only the specified keys selected along its valuediscarding any other property.
+If the json is an array of objects, it will return the same array with only the key filled.
 More than one key can be selected, and nesting is applied using `.` operator, examples:
 - `key1, key2, key3`.
 - `key1.nested, key2`.
@@ -28,7 +28,7 @@ Open the command palette and type for `Json Node Editor | Unwrap specific keys`.
 Once selected it will ask for a key to unwrap on the json provided. Returning a json containing only the value of the specified key, similar to select operation but removing the keys. Any other property is removed.
 If the json is an array of object, it will return the same array unwrapping each individual object.
 Only one key is allowed, and nesting is applied using `.` operator, examples:
-- `key1.nested, key2`.
+- `key1.nested`.
 
 It will also show pre-configured keys stored in configuration. See [Settings section](#Settings)
 

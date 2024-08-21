@@ -3,11 +3,12 @@ import { EditorHandler } from '../EditorHandler';
 
 export async function selectNodes(editorHandler: EditorHandler, parser: JsonNodeParser) {
     const key = await editorHandler.askForInputAsync();
+    let innerSelected = {};
     let result = parser.process(editorHandler.getDocument(), (jsonObject: any) => {
-        let innerSelected = {};
         key.split(',').map(k => k.trim())
             .forEach(k => {
                 keepKeys(jsonObject, parser.splitKey(k), innerSelected);
+                
             });
         return innerSelected;
     });
@@ -28,12 +29,13 @@ function keepKeys(obj: any, keys: string[], selected: any): void {
         }
         currentSelected = currentSelected[keys[i]];
         if (currentObj instanceof Array) {
+
             for (let j = 0; j < currentObj.length; j++) {
-                currentObj.forEach(innerObject => {
-                let innerSelected = {};
+                const innerObject = currentObj[j];
+                let innerSelected = currentSelected[j] ?? {};
                 keepKeys(innerObject, keys.slice(i + 1, keys.length), innerSelected);
-                currentSelected.push(innerSelected);
-                });
+                currentSelected[j] = innerSelected;
+
             }
 
         }

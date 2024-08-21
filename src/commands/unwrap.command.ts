@@ -12,8 +12,6 @@ export async function unwrapNodes(editorHandler: EditorHandler, parser: JsonNode
 function unwrapKeys(obj: any, keys: string[]): any {
     let currentObj = obj;
     let result: any = {};
-    console.log('currentObj', currentObj, ' all keys ', keys);
-
     for (let i = 0; i < keys.length - 1; i++) {
         currentObj = currentObj[keys[i]];
         if (!currentObj) {
