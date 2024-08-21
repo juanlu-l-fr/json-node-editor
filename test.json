@@ -1,6 +1,8 @@
 {
   "key": "value",
   "nested": {
+    "prop1" : "nestedProp",
+    "prop2" : "nestedProp2",
     "array": [
       {
         "key1": "value",
