@@ -15,7 +15,11 @@ export class JsonNodeParser {
         let parsed = this.readjsonObject(document);
         const isArray = parsed instanceof Array;
         if (isArray) {
-            return parsed.map(innerObject => callback(innerObject));
+            let result:any = []
+             parsed.forEach(innerObject => {
+                result.push(callback(innerObject))
+            });
+            return result;
         } else {
             return callback(parsed);
         }

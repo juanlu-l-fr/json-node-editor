@@ -1,5 +1,6 @@
 # Change Log
-
+## [1.0.5]
+- [Bugfix]: solved issue when selecting nested nodes
 ## [1.0.4]
 - [Bugfix]: Fixed `select` command, where it wouldn't read correctly nested arrays.
 - [Added]: unwrap command.
