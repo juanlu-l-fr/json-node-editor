@@ -1,6 +1,6 @@
 # Change Log
 
-## [1.0.1]
+## [1.0.4]
 - [Bugfix]: Fixed `select` command, where it wouldn't read correctly nested arrays.
 - [Added]: unwrap command.
 ## [1.0.0]
