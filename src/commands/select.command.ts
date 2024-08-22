@@ -3,8 +3,8 @@ import { EditorHandler } from '../EditorHandler';
 
 export async function selectNodes(editorHandler: EditorHandler, parser: JsonNodeParser) {
     const key = await editorHandler.askForInputAsync();
-    let innerSelected = {};
     let result = parser.process(editorHandler.getDocument(), (jsonObject: any) => {
+        let innerSelected = {};
         key.split(',').map(k => k.trim())
             .forEach(k => {
                 keepKeys(jsonObject, parser.splitKey(k), innerSelected);
